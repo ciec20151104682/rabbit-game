@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F278159A20A545FD004F4718 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F278159920A545FD004F4718 /* background.jpg */; };
+		F2B102CB20A56CEE0054773A /* gray.png in Resources */ = {isa = PBXBuildFile; fileRef = F2B102C920A56CEE0054773A /* gray.png */; };
+		F2B102CC20A56CEE0054773A /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = F2B102CA20A56CEE0054773A /* yellow.png */; };
 		F2E72D8A20A53553003B8102 /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = F2E72D8620A53553003B8102 /* left.png */; };
 		F2E72D8B20A53553003B8102 /* middle.png in Resources */ = {isa = PBXBuildFile; fileRef = F2E72D8720A53553003B8102 /* middle.png */; };
 		F2E72D8C20A53553003B8102 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = F2E72D8820A53553003B8102 /* right.png */; };
@@ -38,6 +40,8 @@
 
 /* Begin PBXFileReference section */
 		F278159920A545FD004F4718 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		F2B102C920A56CEE0054773A /* gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gray.png; sourceTree = "<group>"; };
+		F2B102CA20A56CEE0054773A /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow.png; sourceTree = "<group>"; };
 		F2E72D8620A53553003B8102 /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
 		F2E72D8720A53553003B8102 /* middle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = middle.png; sourceTree = "<group>"; };
 		F2E72D8820A53553003B8102 /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right.png; sourceTree = "<group>"; };
@@ -105,6 +109,8 @@
 			children = (
 				F2FCA06620A2F80F004A4963 /* AppDelegate.swift */,
 				F2FCA06820A2F80F004A4963 /* ViewController.swift */,
+				F2B102C920A56CEE0054773A /* gray.png */,
+				F2B102CA20A56CEE0054773A /* yellow.png */,
 				F278159920A545FD004F4718 /* background.jpg */,
 				F2E72D8620A53553003B8102 /* left.png */,
 				F2E72D8720A53553003B8102 /* middle.png */,
@@ -242,11 +248,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2E72D8C20A53553003B8102 /* right.png in Resources */,
+				F2B102CC20A56CEE0054773A /* yellow.png in Resources */,
 				F2E72D8B20A53553003B8102 /* middle.png in Resources */,
 				F2FCA07120A2F80F004A4963 /* LaunchScreen.storyboard in Resources */,
 				F278159A20A545FD004F4718 /* background.jpg in Resources */,
 				F2E72D8A20A53553003B8102 /* left.png in Resources */,
 				F2FCA06E20A2F80F004A4963 /* Assets.xcassets in Resources */,
+				F2B102CB20A56CEE0054773A /* gray.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
