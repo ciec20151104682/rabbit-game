@@ -21,7 +21,7 @@ func produceAllCircleLocations(){
     for i in 1..<10{
         var rowCircleLocations = [CircleLocation]()
         for j in 1..<10{
-            var loc = CircleLocation(row:i,col:j)
+            let loc = CircleLocation(row:i,col:j)
             rowCircleLocations.append(loc)
         }
         allCircleLocations.append(rowCircleLocations)
@@ -55,14 +55,18 @@ class ViewController: UIViewController {
                 wallNumber = wallNumber+1;
                 map[i][j]=1
             }
-        }
-        
-        
+        }   
     }
     func produceCat() {
         let catImageview = UIImageView()
-        catImageview.frame = CGRect(x: (20+24*4),y :(170+24*3), width: 24, height: 24)
-        
+        catImageview.frame = CGRect(x: (20+24*4),y :(170+24*3), width: 24, height: 48)
+        let leftImage:UIImage! = UIImage(named:"left1.png")
+        let middleImage:UIImage! = UIImage(named:"middle1.png")
+        let rightImage:UIImage! = UIImage(named:"right1.png")
+        catImageview.animationImages=[leftImage!,middleImage!,rightImage!]
+        catImageview.animationDuration=1.0
+        catImageview.startAnimating()
+        self.view.addSubview(catImageview)
     }
     func produceAllButtons(){
         for i in 1..<10{
