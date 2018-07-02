@@ -31,6 +31,8 @@ func produceAllCircleLocations(){
 
 class ViewController: UIViewController {
     var allButtens = [[UIButton]]()
+    var rib = CircleLocation(row:4,col:4)
+    let ribImageview = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +42,7 @@ class ViewController: UIViewController {
         backgroundImageview.image = UIImage(named:"background.jpg")
         self.view.addSubview(backgroundImageview)
         produceAllButtons()
-        produceCat()
+        produceRib()
         produceGameLevel()
         produceAllCircleLocations()
     }
@@ -57,16 +59,16 @@ class ViewController: UIViewController {
             }
         }   
     }
-    func produceCat() {
-        let catImageview = UIImageView()
-        catImageview.frame = CGRect(x: (20+24*4),y :(170+24*3), width: 24, height: 48)
+    func produceRib() {
+        
+        ribImageview.frame = CGRect(x: (20+24*4),y :(170+24*3), width: 24, height: 48)
         let leftImage:UIImage! = UIImage(named:"left1.png")
         let middleImage:UIImage! = UIImage(named:"middle1.png")
         let rightImage:UIImage! = UIImage(named:"right1.png")
-        catImageview.animationImages=[leftImage!,middleImage!,rightImage!]
-        catImageview.animationDuration=1.0
-        catImageview.startAnimating()
-        self.view.addSubview(catImageview)
+        ribImageview.animationImages=[leftImage!,middleImage!,rightImage!]
+        ribImageview.animationDuration=1.0
+        ribImageview.startAnimating()
+        self.view.addSubview(ribImageview)
     }
     func produceAllButtons(){
         for i in 1..<10{
@@ -88,8 +90,33 @@ class ViewController: UIViewController {
     }
     func clickMe(btn: UIButton) {
         btn.setImage(UIImage(named:"yellow.png"), for: UIControlState())
+        ribAutoGo()
+        
     }
-    
+    func getBestLocation()->CircleLocation?{
+        let ribAllConnect = rib.getAllConnectLocation()
+        if ribAllConnect.count>0{
+            return ribAllConnect[0]
+        }else{
+            return nil
+        }
+        
+    }
+    func ribAutoGo() {
+        let temp = getBestLocation()
+        if let best=temp {
+            rib.row=best.row
+            rib.col=best.col
+            let i = best.row
+            let j = best.col
+            if i%2==0 {
+                ribImageview.frame = CGRect(x: (20+24*j),y :(170+24*(i-1)), width: 24, height: 48)
+            }else{
+                ribImageview.frame = CGRect(x: (32+24*j),y :(170+24*(i-1)), width: 24, height: 48)
+            }
+        }
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
