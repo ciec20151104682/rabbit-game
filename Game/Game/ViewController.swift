@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import AVFoundation
 var hasCircle = 0
 var map=[[0,0,0,0,0,0,0,0,0],
          [0,0,0,0,0,0,0,0,0],
@@ -49,13 +50,13 @@ class ViewController: UIViewController {
         rib.row = 4
         rib.col = 4
         map[4][4]=1
-        ribImageview.frame = CGRect(x: (20+24*4),y :(170+24*3), width: 24, height: 48)
+        ribImageview.frame = CGRect(x: (36+24*4),y :(185+24*3), width: 24, height: 48)
         produceGameLevel()
         pathNumber  = 0
         isGameOver = 0
     }
     func produceGameLevel(){
-        let gamelevel = (Int)(arc4random()%40+10)
+        let gamelevel = (Int)(arc4random()%30+20)
         var wallNumber = 0
         while wallNumber<gamelevel {
             let i = (Int)(arc4random()%9)
@@ -69,7 +70,7 @@ class ViewController: UIViewController {
     }
     func produceRib() {
         
-        ribImageview.frame = CGRect(x: (20+24*4),y :(170+24*3), width: 24, height: 48)
+        ribImageview.frame = CGRect(x: (36+24*4),y :(185+24*3), width: 24, height: 48)
         let leftImage:UIImage! = UIImage(named:"left1.png")
         let middleImage:UIImage! = UIImage(named:"middle1.png")
         let rightImage:UIImage! = UIImage(named:"right1.png")
@@ -87,9 +88,9 @@ class ViewController: UIViewController {
                 rowButtons.append(btn)
                 btn.addTarget(self,action:#selector(clickMe(btn:)), for: UIControlEvents.touchUpInside)
                 if i%2==0 {
-                    btn.frame =  CGRect(x: (20+24*j),y :(170+24*i), width: 24, height: 24)
+                    btn.frame =  CGRect(x: (36+24*j),y :(185+24*i), width: 24, height: 24)
                 }else{
-                    btn.frame =  CGRect(x: (32+24*j),y :(170+24*i), width: 24, height: 24)
+                    btn.frame =  CGRect(x: (48+24*j),y :(185+24*i), width: 24, height: 24)
                 }
                 self.view.addSubview(btn)
                 btn.setImage(UIImage(named:"gray.png"), for: UIControlState())
@@ -99,19 +100,19 @@ class ViewController: UIViewController {
     }
     func getButtonRow(btn:UIButton) -> Int {
         let y = (Int)(btn.frame.origin.y)
-        let row = (y - 170) / 24
+        let row = (y - 185) / 24
         return row
     }
     func getButtonCol(btn:UIButton) -> Int {
         let x = (Int)(btn.frame.origin.x)
         let y = (Int)(btn.frame.origin.y)
-        let row = (y - 170) / 24
+        let row = (y - 185) / 24
         var col = 0
         if (row % 2 == 0) {
-            col = (x - 20) / 24
+            col = (x - 36) / 24
         }
         else {
-            col = (x - 32) / 24
+            col = (x - 48) / 24
         }
         return col
     }
@@ -199,9 +200,9 @@ class ViewController: UIViewController {
             let j = best.col
             map[i][j]=1
             if i % 2 == 0 {
-                ribImageview.frame = CGRect(x: (20+24*j),y :(170+24*(i-1)), width: 24, height: 48)
+                ribImageview.frame = CGRect(x: (36+24*j),y :(185+24*(i-1)), width: 24, height: 48)
             }else{
-                ribImageview.frame = CGRect(x: (32+24*j),y :(170+24*(i-1)), width: 24, height: 48)
+                ribImageview.frame = CGRect(x: (48+24*j),y :(185+24*(i-1)), width: 24, height: 48)
             }
             if rib.isBoundary(){
                 return -1
